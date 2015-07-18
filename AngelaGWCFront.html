@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>   
+
+<script>
+$(function() {
+  $( "#tabs" ).tabs();
+  $('#colorpicker').change(function() {
+    var option = $("#colorpicker option:selected").text();
+    $('li a[href=#tabs-1]').css('color', option);
+  });
+  $('#stylepicker').change(function() {
+    var option = $("#stylepicker option:selected").val();
+    if (option == 'bold') {
+      $('li a[href=#tabs-1]').css({'font-weight':'bold'});
+    }
+    else if (option == 'italic') {
+      $('li a[href=#tabs-1]').css({'font-weight':'normal','font-style':'italic'});
+    }
+    else if (option == 'normal') {
+      $('li a[href=#tabs-1]').css({'font-weight':'normal','font-style':'normal'});
+    }
+    else if (option == 'bolditalic') {
+      $('li a[href=#tabs-1]').css({'font-weight':'bold','font-style':'italic'});
+    }
+  });
+});
+
+function setBody(bgType)
+{
+  var option;
+  if (bgType == 'bgColor') {
+    option = $("#pickBgColor option:selected").val();
+    document.body.style.backgroundColor = option;
+  }
+  else if (bgType == 'bgImage') {
+    option = $("#pickBgImage option:selected").val();
+    alert(bgType + " " + option);
+    if (option == null) {
+      document.body.style.backgroundImage = option;
+    }
+    else {
+      document.body.style.backgroundImage = 'url(' + option + ')';
+    }
+  }
+
+}
+
+//menu
+  $(function() {
+    $( "#menu" ).menu();
+  });
+
+//button function
+$(function() {
+    $( "input[type=submit], a, button" )
+      .button()
+      .click(function( event ) {
+        event.preventDefault();
+      });
+  });
+  
+$(function() {
+  var menuVisible = false;
+  $('#menuBtn').click(function() {
+    if (menuVisible) {
+      $('#myMenu').css({'display':'none'});
+      menuVisible = false;
+      return;
+    }
+    $('#myMenu').css({'display':'block'});
+    menuVisible = true;
+  });
+  $('#myMenu').click(function() {
+    $(this).css({'display':'none'});
+    menuVisible = false;
+  });
+});
+ 
+ 
+
+</script>
+
+<style>
+body {
+  background-color:#CC66FF;
+}
+div.question {
+  font-weight:bold;
+  margin-top:2px;
+  margin-bottom:5px;
+}
+div.answer {
+  margin-bottom:10px;
+}
+
+.ui-menu { width: 150px; }
+}
+</style>
+</head>
+
+<body background="https://www.colourbox.com/preview/3475147-tech-background-in-the-purple-color.jpg">
+
+<h2>Profile</h2>
+<div id="tabs">
+<ul>
+<li><a href="#tabs-1">News Feed</a></li>
+<li><a href="#tabs-1L">Current Goals</a></li>
+<li><a href="#tabs-1L2">Groups</a></li>
+<li><a href="#tabs-2">Resources</a></li>
+<li><a href="#tabs-3">blah</a></li>
+<li><a href="#tabs-4">blah</a></li>
+</ul>
+
+
+<div id="tabs-1">
+
+<div id="menuBtn">Menu</div>
+<nav id="myMenu">
+  <ul id="menu">
+  <li class="ui-state-disabled">All</li>
+    <li>GWC Class 2015</li>
+    <li>Python</li>
+    <li>Hardware</li>
+    <li>Hackathons</li>
+  </ul>
+</nav>
+
+<iframe src="Wiki.htm" width="800" height="550" scrolling="yes" frameBorder="0" id="iframe1">Browser not compatible.</iframe>
+
+<br>
+
+</div>
+
+
+<div id="tabs-1L">
+<iframe src="https://en.wikipedia.org/wiki/Portal:Current_events" width="1024" height="650" scrolling="yes" frameBorder="0" id="iframe1">Browser not compatible.</iframe>
+<script type="text/javascript">
+// below section write the text into the innerHTML
+function writeMsg(msg, place)
+{
+  document.getElementById([place]).innerHTML=msg;
+}
+// writeMsg("hello world","tabs-1L");
+// above section ends
+
+</script>
+</div>
+
+<div id="tabs-1L2">
+<a href="http://www.html-5-tutorial.com/all-html-tags.htm" target="_blank">HTML5 tags summary</a>
+</div>
+
+<div id="tabs-2">
+<ol>
+<li>
+  <div class="question">Find Alumni</div>
+  <div class="answer"> 
+  <p><a href="http://jqueryui.com/tabs/">Summer Immersion Program 2014 Contacts</a></p>
+  <p><a href="http://jqueryui.com/tabs/">UC Society of Women Engineers Mailing List</a></p>
+  	
+  </div>
+</li> 
+
+
+
+<li>
+<div class="question">
+Online Courses
+</div>
+<div class="answer">
+<p><a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a></p>
+
+<p><a href="http://ocw.mit.edu/courses/find-by-topic/"> MIT Open Courseware</a></p>
+<p> </p>
+</div>
+</li>
+</ol>
+</div>
+
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
